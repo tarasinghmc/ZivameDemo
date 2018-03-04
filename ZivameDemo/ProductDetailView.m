@@ -220,19 +220,19 @@
     
     
     //Description
-    UILabel *productDescriptionLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-    productDescriptionLabel.text = self.productDescription;
-    productDescriptionLabel.textColor = [UIColor colorWithRed:89.0f/255.0f green:89.0f/255.0f blue:89.0f/255.0f alpha:1.0f];
-    productDescriptionLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightRegular];
-    productDescriptionLabel.numberOfLines = 0;
+    UITextView *productDescriptionTextView = [[UITextView alloc] initWithFrame:CGRectZero];
+    productDescriptionTextView.text = [NSString stringWithFormat:@"%@", self.productDescription?:@""];
+    productDescriptionTextView.textColor = [UIColor colorWithRed:89.0f/255.0f green:89.0f/255.0f blue:89.0f/255.0f alpha:1.0f];
+    productDescriptionTextView.font = [UIFont systemFontOfSize:16 weight:UIFontWeightRegular];
+    productDescriptionTextView.editable = NO;
     
-    productDescriptionLabel.translatesAutoresizingMaskIntoConstraints = NO;
-        productDescriptionLabel.backgroundColor = [UIColor clearColor];
-    [contentView addSubview:productDescriptionLabel];
+    productDescriptionTextView.translatesAutoresizingMaskIntoConstraints = NO;
+        productDescriptionTextView.backgroundColor = [UIColor clearColor];
+    [contentView addSubview:productDescriptionTextView];
 
-    //productDescriptionLabel Top
+    //productDescriptionTextView Top
     [contentView addConstraint:[NSLayoutConstraint
-                                constraintWithItem:productDescriptionLabel
+                                constraintWithItem:productDescriptionTextView
                                 attribute:NSLayoutAttributeTop
                                 relatedBy:NSLayoutRelationEqual
                                 toItem:closeButton
@@ -240,19 +240,19 @@
                                 multiplier:1.0f
                                 constant:10.0f]];
     
-    //productDescriptionLabel Trailing
+    //productDescriptionTextView Trailing
     [contentView addConstraint:[NSLayoutConstraint
                                 constraintWithItem:contentView
                                 attribute:NSLayoutAttributeTrailing
                                 relatedBy:NSLayoutRelationEqual
-                                toItem:productDescriptionLabel
+                                toItem:productDescriptionTextView
                                 attribute:NSLayoutAttributeTrailing
                                 multiplier:1.0f
                                 constant:10.0f]];
     
-    //productDescriptionLabel Leading
+    //productDescriptionTextView Leading
     [contentView addConstraint:[NSLayoutConstraint
-                                constraintWithItem:productDescriptionLabel
+                                constraintWithItem:productDescriptionTextView
                                 attribute:NSLayoutAttributeLeading
                                 relatedBy:NSLayoutRelationEqual
                                 toItem:contentView
@@ -282,7 +282,7 @@
                                      constraintWithItem:learnMoreButton
                                      attribute:NSLayoutAttributeTop
                                      relatedBy:NSLayoutRelationEqual
-                                     toItem:productDescriptionLabel
+                                     toItem:productDescriptionTextView
                                      attribute:NSLayoutAttributeBottom
                                      multiplier:1.0f
                                      constant:10.0f]];
@@ -306,7 +306,7 @@
                                      toItem:learnMoreButton
                                      attribute:NSLayoutAttributeBottom
                                      multiplier:1.0f
-                                     constant:10.0f]];
+                                     constant:5.0f]];
     
     
     [learnMoreButton addConstraint:[NSLayoutConstraint
@@ -334,7 +334,7 @@
     [matchingButton setTitle:@"SEE MATCHING PRODUCTS" forState:UIControlStateNormal];
 
     [matchingButton setTitleColor:[UIColor colorWithRed:250.0f/255.0f green:50.0f/255.0f blue:127.0f/255.0f alpha:1.0f] forState:UIControlStateNormal];
-
+    matchingButton.titleLabel.numberOfLines = 2;
     matchingButton.titleLabel.font =  [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
     matchingButton.translatesAutoresizingMaskIntoConstraints = NO;
 
@@ -346,7 +346,7 @@
                                 constraintWithItem:matchingButton
                                 attribute:NSLayoutAttributeTop
                                 relatedBy:NSLayoutRelationEqual
-                                toItem:productDescriptionLabel
+                                toItem:productDescriptionTextView
                                 attribute:NSLayoutAttributeBottom
                                 multiplier:1.0f
                                 constant:10.0f]];
@@ -379,7 +379,7 @@
                                 toItem:matchingButton
                                 attribute:NSLayoutAttributeBottom
                                 multiplier:1.0f
-                                constant:10.0f]];
+                                constant:5.0f]];
 
 
     [matchingButton addConstraint:[NSLayoutConstraint
