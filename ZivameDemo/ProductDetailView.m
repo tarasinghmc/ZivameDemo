@@ -17,15 +17,6 @@
 
 @property (strong, nonatomic) NSString *productDescription;
 
-@property (strong, nonatomic) UIGestureRecognizer *gestureRecogniser;
-@property (weak, nonatomic) UIView *tapGestureView;
-@property (weak, nonatomic) UIView *contentView;
-@property (weak, nonatomic) UIDatePicker *datePicker;
-
-
-@property (weak, nonatomic) UIButton *colseButton;
-@property (weak, nonatomic) UIButton *setButton;
-
 
 @end
 
@@ -93,6 +84,8 @@
     return self;
 }
 
+
+#pragma mark - Helper Methods
 -(void)customInit
 {
     
@@ -172,7 +165,6 @@
     
     
     
-   // self.contentView = contentView;
     
     
         //Close Button
@@ -184,9 +176,6 @@
         [closeButton addTarget:self action:@selector(closeButtonPressed:) forControlEvents:UIControlEventTouchUpInside];
     
         [contentView addSubview:closeButton];
-    
-    
-    
     
     
         //Close Top
@@ -405,33 +394,8 @@
 
 }
 
-//-(void)setViewForTSTimeScope:(TSTimeScope)scope time:(NSDate *)time countDownDuration:(int)countDownDuration{
-//
-//    self.scope = scope;
-//
-//    if (self.scope == TSTimeScopeSlot) {
-//
-//        self.datePicker.datePickerMode = UIDatePickerModeCountDownTimer;
-//        self.datePicker.countDownDuration = countDownDuration;
-//
-//    }else if (self.scope == TSTimeScopeStarTime || scope == TSTimeScopeEndTime){
-//
-//        self.datePicker.datePickerMode = UIDatePickerModeTime;
-//        self.datePicker.date = time;
-//
-//    }
-//
-//}
--(void)setButtonPressed:(id)sender
-{
-    [self.tapGestureView removeGestureRecognizer:self.gestureRecogniser];
-    
-//    if([self.delegate respondsToSelector:@selector(didValueChagedForScope:time:countDownDuration:)])
-//    {
-//        [self.delegate didValueChagedForScope:self.scope time:self.datePicker.date countDownDuration:self.datePicker.countDownDuration];
-//
-//    }
-}
+
+#pragma mark - Button Actions Methods
 
 -(void)closeButtonPressed:(id)sender
 {
@@ -443,33 +407,6 @@
     }
 }
 
-#pragma mark - UIGestureRecognizer Actions
 
--(void)hideTimeView:(UIGestureRecognizer *)tapGessture
-{
-    
-    [self.tapGestureView removeGestureRecognizer:self.gestureRecogniser];
-    
-//    if([self.delegate respondsToSelector:@selector(didHideTimeView)])
-//    {
-//        [self.delegate didHideTimeView];
-//        
-//    }
-}
-
-//#pragma mark - Date Picker Methods
-//
-//-(void)didTimeChanged:(id)sender
-//{
-//
-//
-//}
 @end
-//@implementation ProductDetailView
-//
-
-
-
-//
-//@end
 

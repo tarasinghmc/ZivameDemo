@@ -52,7 +52,6 @@
     self.collectionView.delegate = self;
     [self.collectionView reloadData];
 
-    
 }
 
 -(void)viewDidLayoutSubviews {
@@ -62,7 +61,6 @@
     
     UIBezierPath *maskPath = [UIBezierPath bezierPathWithRoundedRect:self.collectionView.bounds byRoundingCorners:(UIRectCornerTopRight | UIRectCornerBottomRight) cornerRadii:CGSizeMake(10.0, 10.0)];
     
-
     CAShapeLayer *borderLayer = [[CAShapeLayer alloc] init];
     borderLayer.frame = self.collectionView.bounds;
     borderLayer.path  = maskPath.CGPath;
