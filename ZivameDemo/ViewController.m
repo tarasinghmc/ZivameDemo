@@ -73,7 +73,7 @@
     
     
     CALayer *rightBorder = [CALayer layer];
-    rightBorder.borderColor = [UIColor purpleColor].CGColor;
+    rightBorder.borderColor = [UIColor colorWithRed:122.0f/255.0f green:17.0f/255.0f blue:181.0f/255.0f alpha:1.0f].CGColor;
     rightBorder.borderWidth = 4.0f;
     rightBorder.frame = CGRectMake(-1, -1, 4, CGRectGetHeight(self.collectionView.frame)+2);
     
@@ -132,10 +132,10 @@
         cell.titleLabel.textColor = [UIColor colorWithRed:249.0f/255.0f green:0.0f/255.0f blue:93.0f/255.0f alpha:1.0f];
         
     }else {
-        cell.titleLabel.textColor = [UIColor purpleColor];
+        cell.titleLabel.textColor = [UIColor colorWithRed:122.0f/255.0f green:17.0f/255.0f blue:181.0f/255.0f alpha:1.0f];
     }
     
-    cell.verticalSeparatorView.backgroundColor = [UIColor purpleColor];
+    cell.verticalSeparatorView.backgroundColor = [UIColor colorWithRed:122.0f/255.0f green:17.0f/255.0f blue:181.0f/255.0f alpha:1.0f];
     
     if (((indexPath.row % 2) == 0) && (indexPath.row != (self.featuresArray.count - 1))) {
         cell.verticalSeparatorView.hidden = NO;
